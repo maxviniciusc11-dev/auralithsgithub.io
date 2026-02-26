@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auralith Studio</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#1a001f,#2b0033,#3d0052);
+    color:white;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    opacity:0.8;
+    max-width:600px;
+    margin:auto;
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 35px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn-orcamento{
+    background:#8a2be2;
+    color:white;
+}
+
+.btn-orcamento:hover{
+    background:#a64dff;
+    transform:translateY(-3px);
+}
+
+.btn-discord{
+    background:#5865F2;
+    color:white;
+}
+
+.btn-discord:hover{
+    background:#6d78ff;
+    transform:translateY(-3px);
+}
+
+/* SERVIÇOS */
+
+.servicos{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.servicos h2{
+    margin-bottom:40px;
+    font-size:28px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:25px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
+    background:#140018;
+    padding:25px;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px #8000ff60;
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card p{
+    font-size:14px;
+    opacity:0.8;
+}
+
+/* RODAPÉ */
+
+footer{
+    text-align:center;
+    padding:30px;
+    font-size:13px;
+    opacity:0.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <h1>Auralith Studio</h1>
+    <p>Desenvolvimento profissional para servidores. Criamos sistemas, TextDraws, mapas exclusivos e soluções personalizadas.</p>
+
+    <div class="buttons">
+        <a href="orcamento.html" class="btn btn-orcamento">Solicitar Orçamento</a>
+        <a href="https://discord.gg/jVpMga2D" class="btn btn-discord">Entrar no Discord</a>
+    </div>
+</section>
+
+<section class="servicos">
+    <h2>O Que Nós Fazemos</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Mapas Exclusivos</h3>
+            <p>Mapas personalizados, otimizados e exclusivos para seu servidor.</p>
+        </div>
+
+        <div class="card">
+            <h3>TextDraw Profissional</h3>
+            <p>Interfaces modernas, organizadas e adaptadas ao seu projeto.</p>
+        </div>
+
+        <div class="card">
+            <h3>Sistemas Personalizados</h3>
+            <p>Criamos sistemas únicos para diferenciar seu servidor da concorrência.</p>
+        </div>
+
+        <div class="card">
+            <h3>Comandos & Integrações</h3>
+            <p>Comandos organizados, funcionais e prontos para uso profissional.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+Auralith Studio © 2026 — Todos os direitos reservados.
+</footer>
+
+</body>
+</html>

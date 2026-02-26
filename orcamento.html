@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitar Orçamento - Auralith Studio</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#1a001f,#2b0033,#3d0052);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    color:white;
+}
+
+.container{
+    background:#140018;
+    padding:40px;
+    width:420px;
+    border-radius:20px;
+    box-shadow:0 0 30px #8000ff50;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:25px;
+    font-size:24px;
+}
+
+input, select, textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    border:none;
+    border-radius:10px;
+    font-size:14px;
+    outline:none;
+}
+
+textarea{
+    height:90px;
+    resize:none;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    background:#8a2be2;
+    color:white;
+    font-weight:bold;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#a64dff;
+    transform:translateY(-2px);
+    box-shadow:0 0 20px #a64dff;
+}
+
+.footer{
+    text-align:center;
+    font-size:12px;
+    margin-top:15px;
+    opacity:0.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Solicitar Orçamento</h1>
+
+<input type="text" id="nome" placeholder="Seu Nome">
+
+<input type="text" id="discord" placeholder="Seu usuário do Discord (ex: stallony_1234)">
+
+<select id="servico">
+<option value="">Selecione o Serviço</option>
+<option>TextDraw</option>
+<option>Sistema</option>
+<option>Mapa</option>
+<option>Comando</option>
+<option>Outro</option>
+</select>
+
+<textarea id="descricao" placeholder="Descreva o que você deseja"></textarea>
+
+<input type="text" id="prazo" placeholder="Prazo desejado">
+
+<input type="text" id="valor" placeholder="Orçamento disponível (R$)">
+
+<button onclick="enviar()">Enviar Solicitação</button>
+
+<div class="footer">
+Auralith Studio © 2026
+</div>
+
+</div>
+
+<script>
+
+function enviar(){
+
+    const webhookURL = "https://discordapp.com/api/webhooks/1476451851179266130/ywF4k3V5hr8ch-BsyIVXSJ4up6M4RfkeMSz7srrCBSFFqqcNvY3-7-cjKV5EMf4COMq8";
+
+    const nome = document.getElementById("nome").value.trim();
+    const discord = document.getElementById("discord").value.trim();
+    const servico = document.getElementById("servico").value;
+    const descricao = document.getElementById("descricao").value.trim();
+    const prazo = document.getElementById("prazo").value.trim();
+    const valor = document.getElementById("valor").value.trim();
+
+    if(!nome || !discord || !servico || !descricao){
+        alert("Preencha todos os campos obrigatórios!");
+        return;
+    }
+
+    const mensagem = {
+        content:
+`📩 **Nova Solicitação de Orçamento**
+
+👤 Nome: ${nome}
+💬 Discord: ${discord}
+🛠 Serviço: ${servico}
+📝 Descrição: ${descricao}
+⏳ Prazo: ${prazo || "Não informado"}
+💰 Orçamento: ${valor || "Não informado"}`
+    };
+
+    fetch(webhookURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(mensagem)
+    })
+    .then(() => {
+        alert("Solicitação enviada com sucesso!");
+        document.querySelectorAll("input, textarea, select").forEach(el => el.value = "");
+    })
+    .catch(() => {
+        alert("Erro ao enviar. Verifique o webhook.");
+    });
+
+}
+
+</script>
+
+</body>
+</html>
